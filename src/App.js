@@ -1,32 +1,25 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import * as action from './Store/actions/a_counter'
 
 export default function App() {
   const counter = useSelector((state) => state.counter)
   const dispatch = useDispatch()
 
   const increment = () => {
-    dispatch({
-      type: 'Tang'
-    })
+    dispatch(action.Tang())
   }
 
   const decrement = () => {
-    dispatch({
-      type: 'Giam'
-    })
+    dispatch(action.Giam())
   }
 
   const mutiple = () => {
-    dispatch({
-      type: 'Nhan'
-    })
+    dispatch(action.Nhan())
   }
 
   const Reset = () => {
-    dispatch({
-      type: 'Reset'
-    })
+    dispatch(action.Reset())
   }
 
   return (
