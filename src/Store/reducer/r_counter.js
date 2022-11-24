@@ -1,33 +1,44 @@
-//có thể tạo biến chứa initvalue tại đây rồi truyền vào function dưới
-// const initState = 0
+import { createSlice } from "@reduxjs/toolkit";
 
-// hàm counter này sẽ thực hiện thay đổi value của state
-const reducerFn = (state = { counter: 0 }, action) => {
-    switch (action.type) {
-        case 'Tang':
-            return {
-                counter: state.counter + 1
-            }
+//* 1 - Actions
+const counterSlice = createSlice({
+    // Tạo tên Action
+    name: 'counter',
 
-        case 'Giam':
-            return {
-                counter: state.counter - 1
-            }
+    // Khởi tạo giá trị ban đầu
+    initialState: {
+        counter: 0
+    },
 
-        case 'Nhan':
-            return {
-                counter: state.counter * 5
-            }
+    //code logic theo từng function
+    reducers: {
+        increment: (state, action) => {
+            state.counter++
+        },
 
-        case 'Reset':
-            return {
-                counter: 0
-            }
+        decrement: (state, action) => {
+            state.counter--
+        },
 
-        default:
-            return state
+        mutiple: (state, action) => {
+            state.counter *= 5
+        },
+
+        reset: (state, action) => {
+            state.counter -= state.counter
+        }
     }
+})
+
+//* 1.1 - Export Action
+export const FCounter = counterSlice.actions
+
+//* 2 - Reducers
+export const counterReducer = counterSlice.reducer
+
+
+//* 4 - Export data
+export const counterSelector = (state) => {
+    //code logic
+    return state.counterReducer.counter
 }
-
-
-export default reducerFn

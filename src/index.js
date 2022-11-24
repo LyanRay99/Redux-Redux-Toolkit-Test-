@@ -5,18 +5,16 @@ import reportWebVitals from './reportWebVitals';
 // Redux
 // import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux';
-import { createStore } from 'redux'
-import reducerFn from './Store/reducer/r_counter';
+import store from './Store/indexStores';
 
-const store = createStore(reducerFn)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={store}>
-    <React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
       <App />
-    </React.StrictMode >
-  </Provider>
+    </Provider >
+  </React.StrictMode >
 );
 
 reportWebVitals();

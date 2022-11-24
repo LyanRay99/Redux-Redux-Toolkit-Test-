@@ -1,32 +1,26 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { counterSelector } from './Store/reducer/R_counter.js'
+import { FCounter } from "./Store/reducer/R_counter.js";
 
 export default function App() {
-  const counter = useSelector((state) => state.counter)
+  const counter = useSelector(counterSelector)
   const dispatch = useDispatch()
 
   const increment = () => {
-    dispatch({
-      type: 'Tang'
-    })
+    dispatch(FCounter.increment())
   }
 
   const decrement = () => {
-    dispatch({
-      type: 'Giam'
-    })
+    dispatch(FCounter.decrement())
   }
 
   const mutiple = () => {
-    dispatch({
-      type: 'Nhan'
-    })
+    dispatch(FCounter.mutiple())
   }
 
   const Reset = () => {
-    dispatch({
-      type: 'Reset'
-    })
+    dispatch(FCounter.reset())
   }
 
   return (
